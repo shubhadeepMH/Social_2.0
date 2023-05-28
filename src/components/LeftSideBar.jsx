@@ -57,25 +57,25 @@ export default function LeftSideBar() {
     ]
 
     return (
-        <div className='m-2 p-3 max-w-[18rem]'>
+        <div className=' p-3 max-w-[18rem] '>
             {
                 sideBarData.map((item, index) => {
 
                     return (
-                        <div key={index} className='flex cursor-pointer active:text-blue-700 items-center hover:text-green-600 space-x-3 m-1 p-2 md:hover:bg-slate-200 rounded-lg '>
+                        <div key={index} className='flex cursor-pointer justify-center md:justify-normal active:text-blue-700 items-center hover:text-green-600 space-x-3 mt-4 p-2 md:hover:bg-slate-200 rounded-lg '>
                             <i className={`${item.icon} fa-xl`}></i>
-                            <p className='font-bold invisible md:visible '>{item.title}</p>
+                            <p className='font-bold hidden md:inline-flex '>{item.title}</p>
                         </div>
                     )
 
 
                 })
             }
-          { myUser && <div>
+            {myUser && <div className='mt-4'>
                 <div onClick={handleLogOut} className='md:flex cursor-pointer border text-center hidden border-black hover:bg-red-600 hover:text-white justify-center'>
                     <p className='font-bold '>Log-Out</p>
                 </div>
-                <div onClick={handleLogOut} className='flex md:hidden cursor-pointer active:text-blue-700 items-center hover:text-green-600 space-x-3 m-1 p-2 md:hover:bg-slate-200 rounded-lg '>
+                <div onClick={handleLogOut} className='flex  md:hidden cursor-pointer active:text-blue-700 items-center hover:text-green-600 space-x-3 m-1 p-2 md:hover:bg-slate-200 rounded-lg '>
                     <i class="fa-solid fa-arrow-right-from-bracket fa-lg md:hidden"></i>
                 </div>
             </div>}

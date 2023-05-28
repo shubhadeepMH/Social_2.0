@@ -6,23 +6,27 @@ import RightSideBar from '../components/RightSideBar'
 
 export default function Home() {
   return (
-    <div className='bg-gray-100 h-[100%] '>
-      {/* Navigation bar */}
-      <Navbar />
-      <div className='flex justify-between  '>
-
-        {/* Left sidebar */}
-        <LeftSideBar />
-
-        {/* feed section */}
+    <div className=' flex flex-col  '>
+    {/* Navigation bar */}
+    <Navbar />
+  
+    <div className='flex justify-between flex-grow'>
+      {/* Left sidebar */}
+      
+          <LeftSideBar />
+        
+  
+      {/* Feed section */}
+     
         <FeedSection />
-
-        {/* Right Sidebar */}
-        <RightSideBar />
-
-      </div>
-
-
+      
+  
+      {/* Right Sidebar */}
+      
+          <RightSideBar />
+      
+     
     </div>
+  </div>
   )
 }

@@ -53,8 +53,8 @@ export default function Navbar() {
     }
 
     return (
-        <div className='w-full'>
-        <div className='flex items-center min-w-full bg-gray-100 justify-between  p-2 space-x-2  border-b-2 border-green-300'>
+        <div className='w-full sticky top-0 z-10 bg-green-200'>
+        <div className='flex items-center min-w-full  justify-between  p-2 space-x-2  border-b-2 border-green-300'>
             {/* Left part */}
             <div className='flex p-2 items-center justify-between'>
 
