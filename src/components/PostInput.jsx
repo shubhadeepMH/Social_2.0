@@ -64,11 +64,11 @@ export default function PostInput() {
   }
 
   return (
-    <div className='bg-white p-3 shadow-md rounded-md'>
+    <div className='bg-white p-3 shadow-md rounded-md z-30'>
       {/* Top half */}
       <div className='flex justify-center items-center space-x-1'>
         {user && <img className='h-8 w-8 rounded-full shadow-md' src={user.photoURL} alt="" />}
-        <input ref={postInputRef} value={data} onChange={(e) => setData(e.target.value)} className='outline-none  p-1 flex-grow bg-slate-200 rounded-md' type="text" placeholder='Whats on your mind' />
+        <input ref={postInputRef} value={data} onChange={(e) => setData(e.target.value)} className='outline-none w-4 md:w-9 p-1 flex-grow flex-shrink bg-slate-200 rounded-md' type="text" placeholder='Whats on your mind' />
        
         <i onClick={storePostData} class="fa-sharp fa-solid fa-sm text-red-500 hover:text-blue-500 cursor-pointer active:scale-75 fa-bullhorn"></i>
       </div>
