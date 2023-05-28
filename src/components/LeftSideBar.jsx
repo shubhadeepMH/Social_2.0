@@ -57,13 +57,13 @@ export default function LeftSideBar() {
     ]
 
     return (
-        <div className=' p-3 max-w-[18rem] '>
+        <div className=' p-2  '>
             {
                 sideBarData.map((item, index) => {
 
                     return (
-                        <div key={index} className='flex cursor-pointer justify-center md:justify-normal active:text-blue-700 items-center hover:text-green-600 space-x-3 mt-4 p-2 md:hover:bg-slate-200 rounded-lg '>
-                            <i className={`${item.icon} fa-xl`}></i>
+                        <div key={index} className='flex cursor-pointer justify-center md:justify-normal active:text-blue-700 items-center hover:text-green-600 space-x-3 mt-4 py-2 md:hover:bg-slate-200 rounded-lg '>
+                            <i className={`${item.icon} fa-lg md:xl`}></i>
                             <p className='font-bold hidden md:inline-flex '>{item.title}</p>
                         </div>
                     )
