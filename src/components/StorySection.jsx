@@ -6,7 +6,7 @@ export default function StorySection() {
     let profiles=[
         {
             name:"Shahrukh Khan",
-            image:"https://shorturl.at/pEV45"
+            image:"https://shorturl.at/sxJL8"
         },
         {
             name:"Allu Arjun",
@@ -18,7 +18,7 @@ export default function StorySection() {
         },
         {
             name:"Shahid Kapoor ",
-            image:"https://shorturl.at/fkzO3"
+            image:"https://shorturl.at/anF46"
         },
     ]
   return (

@@ -2,18 +2,25 @@ import React, { useRef } from 'react'
 import { useState } from 'react'
 import { getFirestore, addDoc, collection } from 'firebase/firestore'
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { getAuth } from 'firebase/auth'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import app from '../firebase'
 import { BiSend } from 'react-icons/bi';
 
 export default function PostInput() {
   const [data, setData] = useState();
   const [postImage, setPostImage] = useState(null);
+  let [user,setUser]=useState(null)
   let imageInputRef = useRef();
   let postInputRef = useRef()
   let db = getFirestore(app)
   let storage = getStorage(app);
   let auth = getAuth(app);
+
+  onAuthStateChanged(auth,(getUser)=>{
+    if(getUser){
+        setUser(getUser)
+    }
+  })
 
   let storePostData = async () => {
     let user = auth.currentUser
@@ -60,7 +67,7 @@ export default function PostInput() {
     <div className='bg-white p-3 shadow-md rounded-md'>
       {/* Top half */}
       <div className='flex justify-center items-center space-x-1'>
-        <img className='h-8 w-8 rounded-full shadow-md' src="https://scontent.fccu9-1.fna.fbcdn.net/v/t39.30808-6/326245687_1198183940841700_4046201947539704512_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=174925&_nc_ohc=QXIzRzo5rccAX_uFAxR&_nc_ht=scontent.fccu9-1.fna&oh=00_AfA_oFH6Abj2DiOdgaTjNckXEc7DyfdliUn2ndGYpkbFSQ&oe=646B95F3" alt="" />
+        {user && <img className='h-8 w-8 rounded-full shadow-md' src={user.photoURL} alt="" />}
         <input ref={postInputRef} value={data} onChange={(e) => setData(e.target.value)} className='outline-none  p-1 flex-grow bg-slate-200 rounded-md' type="text" placeholder='Whats on your mind' />
        
         <i onClick={storePostData} class="fa-sharp fa-solid fa-sm text-red-500 hover:text-blue-500 cursor-pointer active:scale-75 fa-bullhorn"></i>
