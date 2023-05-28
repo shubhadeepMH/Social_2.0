@@ -1,5 +1,4 @@
-import React, { useRef } from 'react'
-import { useState } from 'react'
+import React, { useEffect, useRef,useState } from 'react'
 import { getFirestore, addDoc, collection } from 'firebase/firestore'
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
@@ -7,20 +6,24 @@ import app from '../firebase'
 import { BiSend } from 'react-icons/bi';
 
 export default function PostInput() {
-  const [data, setData] = useState();
+  let [data, setData] = useState('');
   const [postImage, setPostImage] = useState(null);
-  let [user,setUser]=useState(null)
+  let [user, setUser] = useState(null)
   let imageInputRef = useRef();
   let postInputRef = useRef()
   let db = getFirestore(app)
   let storage = getStorage(app);
   let auth = getAuth(app);
 
-  onAuthStateChanged(auth,(getUser)=>{
-    if(getUser){
+
+  useEffect(()=>{
+    onAuthStateChanged(auth, (getUser) => {
+      if (getUser) {
         setUser(getUser)
-    }
-  })
+      }
+    })
+  },[])
+
 
   let storePostData = async () => {
     let user = auth.currentUser
@@ -67,10 +70,13 @@ export default function PostInput() {
     <div className='bg-white p-3 shadow-md rounded-md z-30'>
       {/* Top half */}
       <div className='flex justify-center items-center space-x-1'>
-        {user && <img className='h-8 w-8 rounded-full shadow-md' src={user.photoURL} alt="" />}
-        <input ref={postInputRef} value={data} onChange={(e) => setData(e.target.value)} className='outline-none w-4 md:w-9 p-1 flex-grow flex-shrink bg-slate-200 rounded-md' type="text" placeholder='Whats on your mind' />
-       
-        <i onClick={storePostData} class="fa-sharp fa-solid fa-sm text-red-500 hover:text-blue-500 cursor-pointer active:scale-75 fa-bullhorn"></i>
+       {user && <img className='h-8 w-8 rounded-full shadow-md' src={user.photoURL} alt="" />}
+        <input
+          type="text"
+          onChange={(e)=>setData(e.target.value)}
+          placeholder='Whats on your mind'
+        className='outline-none p-1 w-8 md:w-15 flex-grow bg-slate-200 flex-shrink rounded-md'/>
+        <i onClick={storePostData} className="fa-sharp fa-solid fa-sm text-red-500 hover:text-blue-500 cursor-pointer active:scale-75 fa-bullhorn"></i>
       </div>
 
       {/* bottom half */}

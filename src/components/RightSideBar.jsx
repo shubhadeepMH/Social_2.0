@@ -32,7 +32,7 @@ export default function RightSideBar() {
       <div className=''>{
           contacts.map((item,index)=>{
               return(
-                <div className='flex cursor-pointer hover:bg-green-300 rounded-md items-center p-2 justify-end space-x-2  '>
+                <div key={index} className='flex cursor-pointer hover:bg-green-300 rounded-md items-center p-2 justify-end space-x-2  '>
                 <p className='text-sm font-bold font-sans italic  hidden md:inline-flex'>{item.name}</p>
                   <img className='h-10 w-10 md:h-12 md:w-12 rounded-full border-2 border-violet-500' src={item.profilePhoto} alt=""/>
                  

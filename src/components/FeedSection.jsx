@@ -38,7 +38,7 @@ export default function FeedSection() {
 
 
   return (
-    <div className='max-w-2xl scrollbar-hide z-10  h-screen overflow-y-auto  flex-grow'>
+    <div className='max-w-2xl scrollbar-hide  h-screen overflow-y-auto  flex-grow'>
       {/* story section */}
       <StorySection />
 
