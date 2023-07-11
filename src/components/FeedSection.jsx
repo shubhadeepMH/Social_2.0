@@ -55,7 +55,7 @@ export default function FeedSection() {
                 <div className='flex items-center space-x-3 p-2'>
                   <img className='h-10 w-10 rounded-full' src={item.photo} alt="" />
                   <div>
-                    <p className='font-bold text-base font-serif italic'>{item.data}</p>
+                    <p className='font-bold text-base font-serif italic'>{item.userName}</p>
                     <p className='text-sm font-sans'>{new Date(item.timestamp).toLocaleDateString()}</p>
 
                   </div>

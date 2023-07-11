@@ -9,12 +9,12 @@ export default function StorySection() {
             image:"https://shorturl.at/sxJL8"
         },
         {
-            name:"Allu Arjun",
-            image:"https://shorturl.at/cizD9"
+            name:"Vijay ",
+            image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGU8Rr2RWgEJH-JmUWRV1jwFqgRoWbQS0OSg&usqp=CAU"
         },
         {
-            name:"Prabhas ",
-            image:"https://shorturl.at/sCR68"
+            name:"Tom Holland ",
+            image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScAEzzjWt0KTdnwzgg8LbiOCeKuRJrkdRtAw&usqp=CAU"
         },
         {
             name:"Shahid Kapoor ",
